@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Preferences } from '@capacitor/preferences';
 import { environment } from '../../environments/environment';
+import { API_URL } from '../core/api-url';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -20,7 +21,7 @@ export class AuthService {
 
   login(credentials: { email: string; password: string }) {
     return this.http.post<{ token: string }>(
-      `${environment.apiUrl}/auth/login`,
+      `${API_URL}/auth/login`,
       credentials
     );
   }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { API_URL } from '../core/api-url';
 
 export interface OrderItemPayload { productId: number; qty: number; }
 export interface CreateOrderPayload {
@@ -20,10 +21,10 @@ export class OrderService {
   constructor(private http: HttpClient) {}
 
   create(payload: CreateOrderPayload) {
-    return this.http.post<Order>(`${environment.apiUrl}/orders`, payload);
+    return this.http.post<Order>(`${API_URL}/orders`, payload);
   }
 
   list() {
-    return this.http.get<Order[]>(`${environment.apiUrl}/orders`);
+    return this.http.get<Order[]>(`${API_URL}/orders`);
   }
 }
