@@ -1,0 +1,125 @@
+:host {
+  --menu-header-bg: var(--ion-color-primary);
+  --menu-header-color: var(--ion-color-primary-contrast);
+}
+
+ion-menu {
+  --width: 280px;
+}
+
+ion-header {
+  ion-toolbar {
+    background: var(--menu-header-bg);
+    color: var(--menu-header-color);
+  }
+}
+
+ion-content {
+  --padding-top: 8px;
+}
+
+ion-list {
+  ion-item {
+    --padding-start: 16px;
+    --inner-padding-end: 12px;
+    --min-height: 48px;
+
+    border-left: 3px solid transparent;
+    transition: background-color 140ms ease, border-color 140ms ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.03);
+    }
+  }
+}
+
+/* Header bar + cart badge in the top-right button */
+#main-content ion-header ion-toolbar {
+  --min-height: 56px;
+
+  ion-buttons[slot='end'] ion-button {
+    position: relative;
+
+    ion-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      border-radius: 999px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 6px;
+      font-size: 11px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+/* Hide menu button when split pane is visible */
+:host-context(ion-split-pane.split-pane-visible) ion-menu-button {
+  display: none;
+}
+
+
+:host {
+  --menu-header-bg: var(--ion-color-primary);
+  --menu-header-color: var(--ion-color-primary-contrast);
+}
+
+ion-menu {
+  --width: 280px;
+}
+
+ion-menu ion-item {
+  color: var(--ion-text-color, inherit);
+}
+
+ion-header ion-toolbar {
+  background: var(--menu-header-bg);
+  color: var(--menu-header-color);
+}
+
+ion-content {
+  --padding-top: 8px;
+}
+
+ion-list ion-item {
+  --padding-start: 16px;
+  --inner-padding-end: 12px;
+  --min-height: 48px;
+  border-left: 3px solid transparent;
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+
+ion-list ion-item:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Header bar + cart badge in the top-right button */
+#main-content ion-header ion-toolbar {
+  --min-height: 56px;
+}
+#main-content ion-header ion-toolbar ion-buttons[slot='end'] ion-button {
+  position: relative;
+}
+
+#main-content ion-header ion-toolbar ion-buttons[slot='end'] ion-button ion-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  border-radius: 999px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  font-size: 11px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hide menu button when split pane is visible */
+:host-context(ion-split-pane.split-pane-visible) ion-menu-button {
+  display: none;
+}
+

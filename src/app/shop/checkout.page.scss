@@ -1,0 +1,38 @@
+:host {
+  display: block;
+}
+
+.checkout {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8px 12px 24px;
+}
+
+ion-list {
+  margin-top: 8px;
+}
+
+ion-list ion-item + ion-item {
+  margin-top: 4px;
+}
+
+.total {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.actions {
+  margin-top: 12px;
+}
+
+.actions ion-button {
+  width: 100%;
+  max-width: 340px;
+  --border-radius: 10px;
+}
+
+@media (min-width: 640px) {
+  .actions ion-button {
+    width: auto;
+  }
+}

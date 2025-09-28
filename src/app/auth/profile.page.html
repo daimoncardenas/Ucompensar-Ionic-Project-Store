@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/cart">
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge style="margin-left:6px">{{ cart.totalItems() }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile">
+    <div class="avatar">U</div>
+    <ion-text>Profile</ion-text>
+    <div class="actions" style="margin-top:12px">
+      <ion-button color="medium" (click)="logout()">Logout</ion-button>
+    </div>
+  </div>
+</ion-content>

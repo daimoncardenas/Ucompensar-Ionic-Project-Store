@@ -1,0 +1,30 @@
+:host {
+  display: block;
+}
+
+.profile {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 12px 24px;
+  text-align: center;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  background: #e9ecf2;
+  margin: 12px auto 8px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #73849a;
+}
+
+.actions {
+  margin-top: 12px;
+
+  ion-button {
+    --border-radius: 10px;
+  }
+}

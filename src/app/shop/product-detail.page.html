@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Product</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/cart">
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge style="margin-left:6px">{{ cart.totalItems() }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text color="danger" *ngIf="error">{{ error }}</ion-text>
+  <ion-text *ngIf="loading">Loading...</ion-text>
+
+  <div class="product" *ngIf="!loading && product">
+    <div class="hero">
+      <div class="hero-image">
+        <ion-img [src]="product.imageUrl || 'assets/icon/favicon.png'" [alt]="product.name"></ion-img>
+      </div>
+    </div>
+
+    <div class="details">
+      <div class="title">{{ product.name }}</div>
+      <div class="price">{{ product.price | currency:'USD' }}</div>
+      <div class="description" *ngIf="product.description">{{ product.description }}</div>
+
+      <div class="qty-row" style="margin-top:12px">
+        <ion-item>
+          <ion-label position="stacked">Quantity</ion-label>
+          <ion-input type="number" min="1" [(ngModel)]="qty"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="actions" style="margin-top:12px">
+        <ion-button (click)="add()">Add to cart</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

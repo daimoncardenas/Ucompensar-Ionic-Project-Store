@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/cart">
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge style="margin-left:6px">{{ cart.totalItems() }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text *ngIf="cart.totalItems() === 0">Your cart is empty.</ion-text>
+
+  <ion-list *ngIf="cart.totalItems() > 0">
+    <ion-item *ngFor="let item of cart.items()">
+      <ion-label>
+        <div class="name">{{ item.product.name }}</div>
+        <div class="price">{{ item.product.price | currency:'USD' }}</div>
+      </ion-label>
+
+      <ion-input
+        class="qty-input"
+        type="number"
+        min="0"
+        [value]="item.qty"
+        (ionInput)="setQty(item.product.id, $event.detail.value!)">
+      </ion-input>
+
+      <ion-button slot="end" color="danger" (click)="cart.remove(item.product.id)">
+        Remove
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <div class="summary" *ngIf="cart.totalItems() > 0">
+    <div class="total">Total: {{ cart.totalPrice() | currency:'USD' }}</div>
+    <ion-button expand="block" (click)="checkout()">Go to checkout</ion-button>
+  </div>
+</ion-content>
